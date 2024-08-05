@@ -20,7 +20,7 @@ class GenreSeeder extends Seeder
             'name' => 'Aventuras',
         ]);
         Genre::create([ // 3
-            'name' => 'Bélica',
+            'name' => 'Bélico',
         ]);
         Genre::create([ // 4
             'name' => 'Ciencia Ficción',
@@ -35,7 +35,7 @@ class GenreSeeder extends Seeder
             'name' => 'Thriller',
         ]);
         Genre::create([ // 8
-            'name' => 'Histórica',
+            'name' => 'Histórico',
         ]);
         Genre::create([ // 9
             'name' => 'Fantasía',

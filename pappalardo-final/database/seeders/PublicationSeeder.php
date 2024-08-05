@@ -42,8 +42,8 @@ class PublicationSeeder extends Seeder
                 'publication_date' => '2024-03-06',
                 'created_at' => now(),
                 'updated_at' => now(),
-                'cover' => 'imgs/tYPPUFk3zyNnRcnZPTDsflilKipPNQAayxXoNoPO.jpg',
-                'cover_description' => 'Brandon Sanderson',
+                // 'cover' => 'imgs/tYPPUFk3zyNnRcnZPTDsflilKipPNQAayxXoNoPO.jpg',
+                // 'cover_description' => 'Brandon Sanderson',
             ],
             [
                 'id' => 3,

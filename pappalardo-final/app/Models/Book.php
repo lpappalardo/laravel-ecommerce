@@ -44,6 +44,7 @@ class Book extends Model
         'author' => 'required|min:4',
         'pages' => 'required|numeric',
         'format_fk' => 'required|exists:formats,format_id',
+        'description' => 'required',
     ];
 
     public const VALIDATION_MESSAGES = [
@@ -56,6 +57,7 @@ class Book extends Model
         'pages.required' => 'Las páginas deben tener un valor.',
         'pages.numeric' => 'Las páginas deben ser un número.',
         'format_fk.required' => 'Es necesario elegir un formato.',
+        'description.required' => 'La descripción debe tener un valor.',
     ];
 
     protected function price(): Attribute

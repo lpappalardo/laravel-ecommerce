@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -22,8 +23,8 @@ class AuthController extends Controller
             return redirect()
                 ->route('auth.login.form')
                 ->withInput()
-                ->with('feedback.message', 'Las credenciales no coinciden con nuestros registros.')
-                ->with('feedback.type', 'danger');
+                ->with('feedback.message', 'Las credenciales ingresadas no coinciden con nuestros registros.')
+                ->with('feedback.type', 'danger');  
         }
 
         return redirect()
@@ -48,12 +49,12 @@ class AuthController extends Controller
             ->with('feedback.type', 'success');
     }
 
-    public function signupForm()
+    public function registerForm()
     {
-        return view("signup.index");
+        return view("auth.register-form");
     }
 
-    public function signupProcess(Request $request)
+    public function registerProcess(Request $request)
     {
 
         $request->validate(User::VALIDATION_RULES, User::VALIDATION_MESSAGES);
@@ -64,21 +65,21 @@ class AuthController extends Controller
 
             DB::beginTransaction();
 
-            $user = User::create($input);
+            // $user = User::create($input);
 
-            $user->role = 'user';
+            User::create($input);
 
             DB::commit();
             
             return redirect()
-                ->route('auth.login-form')
+                ->route('auth.login.form')
                 ->with('feedback.message', 'Se ha generado el nuevo usuario con éxito.');
         }catch(\Exception $e){
 
             DB::rollback();
 
             return redirect()
-                ->back(fallback: route('signup.index'))
+                ->back(fallback: route('auth.register.form'))
                 ->withInput()
                 ->with('feedback.message', 'Ocurrió un error no se pudo regitrar el usuario.')
                 ->with('feedback.type', 'danger');

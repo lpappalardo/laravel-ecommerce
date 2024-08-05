@@ -66,6 +66,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'confirm-password',
     ];
 
     /**
@@ -89,18 +90,6 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function compras(): BelongsToMany
-    {
-        return $this->belongsToMany(
-            Book::class,
-            'users_have_books',
-            'user_fk',
-            'book_fk',
-            'id',
-            'id'
-        );
     }
 
     public function ordenes(): BelongsToMany

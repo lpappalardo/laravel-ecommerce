@@ -15,7 +15,7 @@
             <dd>{{ $user->email }}</dd>
         </dl>
 
-        <a href="{{ route('profile.edit.form', ['id' => $user->id]) }}" class="ms-2 btn btn-secondary">Editar perfil</a>
+        <a href="{{ route('profile.edit.form', ['id' => $user->id]) }}" class="mb-4 btn btn-primary">Editar perfil</a>
         
         
         <h2 class="mb-3">Ordenes de compra realizadas</h2>

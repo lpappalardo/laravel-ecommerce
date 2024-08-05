@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\SUpport\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -66,18 +67,18 @@ class UsersController extends Controller
 
             return redirect()
                 ->route('profile.index')
-                ->with('feedback.message', 'El usuario ' . e($user->email) . ' se editó con éxito.')
+                ->with('feedback.message', 'El perfil se editó con éxito.')
                 ->with('feedback.type', 'success');
         }catch(\Exception $e){
 
             DB::rollback();
 
             return redirect()
-                ->back(fallback: route('profile.edit-form', ['id' => $id]))
+                ->back(fallback: route('profile.edit.form', ['id' => $id]))
                 ->withInput()
-                ->with('feedback.message', 'Ocurrió un error y el usuario no pudo ser editado.')
+                ->with('feedback.message', 'Ocurrió un error y el perfil no pudo ser editado.')
                 ->with('feedback.type', 'dander');;
 
-        }
+        };
     }
 }

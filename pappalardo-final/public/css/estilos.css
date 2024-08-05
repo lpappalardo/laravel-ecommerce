@@ -253,5 +253,9 @@ body {
     max-width: 100px;
 }
 
-
-
+.formulario {
+    padding: 2rem;
+    border: 2px solid var(--clr-main);
+    border-radius: 4px;
+    background-color: var(--clr-main);
+}

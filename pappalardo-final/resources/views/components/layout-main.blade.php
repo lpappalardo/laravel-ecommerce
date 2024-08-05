@@ -42,13 +42,13 @@
 
                         @else
                         <li class="nav-item">
-                            <x-link route="books.index">ABM Libros</x-link>
+                            <x-link route="books.index">Libros</x-link>
                         </li>
                         <li class="nav-item">
-                            <x-link route="publications.index">ABM Novedades</x-link>
+                            <x-link route="publications.index">Novedades</x-link>
                         </li>
                         <li class="nav-item">
-                            <x-link route="users.index">ABM Usuarios</x-link>
+                            <x-link route="users.index">Usuarios</x-link>
                         </li>
                         @endif
                         @endauth
@@ -56,10 +56,9 @@
                         <li class="nav-item">
                             <x-link route="auth.login.form">Iniciar Sesión</x-link>
                         </li>
-
-                        {{-- <li class="nav-item">
-                            <x-link route="signup.index">Registrarse</x-link>
-                        </li> --}}
+                        <li class="nav-item">
+                            <x-link route="auth.register.form">Registrarse</x-link>
+                        </li>
                         @else
                         <li class="nav-item">
                             <form action="{{ route('auth.logout.process') }}" method="post">
@@ -74,7 +73,7 @@
             <main class="container p-4">
 
                 @if(session()->has('feedback.message'))
-                <div class="alert alert-success md-3">{{ session()->get('feedback.message') }}</div>
+                <div class="alert alert-{{ session()->get('feedback.type', 'info') }} mb-3">{!! session()->get('feedback.message') !!}</div>
                 @endif
 
                 {{ $slot }}

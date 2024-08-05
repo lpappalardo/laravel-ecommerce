@@ -81,7 +81,11 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
-                <textarea id="description" name="description" class="form-control">{{ old('description') }}</textarea>
+                {{-- <textarea id="description" name="description" class="form-control">{{ old('description') }}</textarea> --}}
+                <textarea id="description" name="description" class="form-control" @error('description') aria-describedby="error-description" @enderror>{{ old('description') }}</textarea>
+                @error('description')
+                    <div class="text-danger" id="error-description">{{ $message }}</div>
+                @enderror
             </div>
 
             <fieldset class="mb-3">

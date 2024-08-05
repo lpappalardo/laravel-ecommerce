@@ -12,10 +12,10 @@ Route::post('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'lo
 Route::post('/cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'logoutProcess'])
     ->name('auth.logout.process');
 
-// Route::get('/registrarse', [\App\Http\Controllers\AuthController::class, 'signupForm'])
-//     ->name('signup.index');
-// Route::post('/registrarse', [\App\Http\Controllers\AuthController::class, 'signupProcess'])
-//     ->name('signup.process');
+Route::get('/registrarse', [\App\Http\Controllers\AuthController::class, 'registerForm'])
+   ->name('auth.register.form');
+Route::post('/registrarse', [\App\Http\Controllers\AuthController::class, 'registerProcess'])
+    ->name('auth.register.process');
 
 
 Route::get('/libros', [\App\Http\Controllers\BooksController::class, 'all'])
