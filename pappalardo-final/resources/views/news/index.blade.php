@@ -3,6 +3,7 @@
 ?>
 <x-layout-main>
     <x-slot:title>Noticias Disponibles</x-slot:title>
+        <h1>Noticias Disponibles</h1>
 
         @if($publications->isNotEmpty())
             <div class="cards">

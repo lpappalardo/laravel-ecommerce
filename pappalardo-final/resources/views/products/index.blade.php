@@ -3,6 +3,7 @@
 ?>
 <x-layout-main>
     <x-slot:title>Productos Disponibles</x-slot:title>
+        <h1>Productos Disponibles</h1>
 
         @if($books->isNotEmpty())
             <div class="cards">
