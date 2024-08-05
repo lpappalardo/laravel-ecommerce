@@ -9,12 +9,16 @@
             @foreach($books as $book)
             <div class="card">
                 <div class="card-img centrar">
-                    <img src="{{ url('img/products/theWayOfKings.png') }}" alt="{{ $book->title }}">
+                    @if($book->cover !== null && \Storage::exists($book->cover))
+                        <img src="{{ \Storage::url($book->cover)}}" alt="{{ $book->cover_description }}"/>
+                    @else
+                        <img src="{{ url('img/products/theWayOfKings.png') }}" alt="{{ $book->title }}">
+                    @endif
                 </div>
                 <div class="card-body">
                     <h3 class="card-body-title">{{ $book->title }}</h3>
                     <p class="card-body-price">${{ $book->price }}</p>
-                    <div class="card-body-buttons">
+                    <div class="card-body-buttons d-flex">
                         <a href="{{ route('products.view', ['id' => $book->id]) }}" class="btn button-principal">Ver Más</a>
 
                         <form action="{{ route('products.add.cart', ['id' => $book->id]) }}" method="post" class="ms-2">

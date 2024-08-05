@@ -8,6 +8,10 @@
         <h1 class="mb-3">{{ $publication->title }}</h1>
         <h2 class="mb-3">{{ $publication->subtitle }}</h2>
 
+        @if($publication->cover !== null && \Storage::exists($publication->cover))
+            <img src="{{ \Storage::url($publication->cover)}}" alt="{{ $publication->cover_description }}"/>
+        @endif
+
         <dl class="mb-3">
             <dt>Autor</dt>
             <dd>{{ $publication->author }}</dd>

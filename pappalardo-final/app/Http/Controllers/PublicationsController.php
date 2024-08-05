@@ -87,7 +87,7 @@ class PublicationsController extends Controller
 
         $publication = Publication::findOrFail($id);
 
-        $input = $request->only(['title', 'subtitle', 'content', 'author', 'publication_date','cover_description']);
+        $input = $request->only(['title', 'subtitle', 'content', 'author','cover_description']);
 
         $oldImage = $publication->cover;
 

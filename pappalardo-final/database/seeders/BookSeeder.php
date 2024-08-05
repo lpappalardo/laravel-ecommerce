@@ -25,6 +25,8 @@ class BookSeeder extends Seeder
                 'author' => 'Robert Jordan',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'cover' => 'imgs/WUXTysKqosDoNvpr2HSBrHRfYE5P1deQXmnhKYQG.png',
+                'cover_description' => 'The Eye of the World',
             ],
             [
                 'id' => 2,
@@ -36,6 +38,8 @@ class BookSeeder extends Seeder
                 'author' => 'Brandon Sanderson',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'cover' => 'imgs/yLlpzDaovQqAq84KT2AvZni18CBPaHkXMUak2ZJk.png',
+                'cover_description' => 'The Way of Kings',
             ],
             [
                 'id' => 3,
@@ -47,6 +51,8 @@ class BookSeeder extends Seeder
                 'author' => 'Frank Herbert',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'cover' => 'imgs/UZF1FBSeqP5WTabN0Zdy2J1rJahUWbtbvEIL4bTk.png',
+                'cover_description' => 'Dune',
             ],
         ]);
 

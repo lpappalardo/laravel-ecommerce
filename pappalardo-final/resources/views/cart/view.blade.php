@@ -18,13 +18,13 @@
             <tr>
                 <td>
                     @if($product->book->cover !== null && \Storage::exists($product->book->cover))
-                        <img src="{{ \Storage::url($product->book->cover)}}" alt="{{ $product->book->cover_description }}"/>
+                        <img src="{{ \Storage::url($product->book->cover)}}" alt="{{ $product->book->cover_description }}" class="mx-auto img-width"/>
                     @endif
                 </td>
-                <td>{{ $product->book->title }}</td>
-                <td>${{ $product->book->price }}</td>
-                <td>
-                    <form action="{{ route('cart.delete.process', ['id' => $product->id]) }}" method="post" class="ms-2">
+                <td class="mx-auto">{{ $product->book->title }}</td>
+                <td class="mx-auto">${{ $product->book->price }}</td>
+                <td class="mx-auto">
+                    <form action="{{ route('cart.delete.process', ['id' => $product->id]) }}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>

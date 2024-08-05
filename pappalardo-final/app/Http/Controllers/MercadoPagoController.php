@@ -34,11 +34,15 @@ class MercadoPagoController extends Controller
                 ];
             }
         }else{
-            // $items[] = [
-            //     'title' => 'vacio',
-            //     'quantity' => 0,
-            //     'unit_price' => 0,
-            // ];
+            $books = Book::whereIn('id', [1, 3])->get();
+
+            foreach($books as $book) {
+                $items[] = [
+                    'title' => $book->title,
+                    'quantity' => 1,
+                    'unit_price' => $book->price,
+            ];
+        }
         }
 
         MercadoPagoConfig::setAccessToken(config('mercadopago.access_token'));
