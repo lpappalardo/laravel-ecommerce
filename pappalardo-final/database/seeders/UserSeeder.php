@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 2,
                 'name' => 'Juana',
-                'role' => 'user',
+                'role' => 'client',
                 'email' => 'juana@gmail.com',
                 'password' => Hash::make('1234'),
                 'created_at' => now(),
@@ -49,6 +49,7 @@ class UserSeeder extends Seeder
                 'id' => 2,
                 'user_fk' => 2,
                 'book_fk' => 1,
+                'order_date' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

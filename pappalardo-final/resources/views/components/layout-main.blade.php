@@ -24,6 +24,7 @@
                             <x-link route="home">Home</x-link>
                         </li>
                         @auth
+                        @if(auth()->user()->role != 'admin')
                         <li class="nav-item">
                             <x-link route="products.index">Libros</x-link>
                         </li>
@@ -39,6 +40,7 @@
                             <x-link route="profile.index">Perfil</x-link>
                         </li>
 
+                        @else
                         <li class="nav-item">
                             <x-link route="books.index">ABM Libros</x-link>
                         </li>
@@ -48,6 +50,7 @@
                         <li class="nav-item">
                             <x-link route="users.index">ABM Usuarios</x-link>
                         </li>
+                        @endif
                         @endauth
                         @guest
                         <li class="nav-item">

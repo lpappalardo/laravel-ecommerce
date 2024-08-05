@@ -19,69 +19,89 @@ Route::post('/cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'log
 
 
 Route::get('/libros', [\App\Http\Controllers\BooksController::class, 'all'])
-    ->name('books.index');
+    ->name('books.index')
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/libros/nuevo', [\App\Http\Controllers\BooksController::class, 'createForm'])
     ->name('books.create.form')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 Route::post('/libros/nuevo', [\App\Http\Controllers\BooksController::class, 'createProcess'])
     ->name('books.create.process')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/libros/{id}', [\App\Http\Controllers\BooksController::class, 'view'])
     ->name('books.view')
-    ->whereNumber('id');
+    ->whereNumber('id')
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/libros/{id}/editar', [\App\Http\Controllers\BooksController::class, 'editForm'])
     ->name('books.edit.form')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 Route::post('/libros/{id}/editar', [\App\Http\Controllers\BooksController::class, 'editProcess'])
     ->name('books.edit.process')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/libros/{id}/eliminar', [\App\Http\Controllers\BooksController::class, 'deleteForm'])
     ->name('books.delete.form')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 Route::post('/libros/{id}/eliminar', [\App\Http\Controllers\BooksController::class, 'deleteProcess'])
     ->name('books.delete.process')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 
 Route::get('/novedades', [\App\Http\Controllers\PublicationsController::class, 'all'])
-    ->name('publications.index');
+    ->name('publications.index')
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/novedades/nueva', [\App\Http\Controllers\PublicationsController::class, 'createForm'])
     ->name('publications.create.form')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 Route::post('/novedades/nueva', [\App\Http\Controllers\PublicationsController::class, 'createProcess'])
     ->name('publications.create.process')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/novedades/{id}', [\App\Http\Controllers\PublicationsController::class, 'view'])
     ->name('publications.view')
-    ->whereNumber('id');
+    ->whereNumber('id')
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/novedades/{id}/editar', [\App\Http\Controllers\PublicationsController::class, 'editForm'])
     ->name('publications.edit.form')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 Route::post('/novedades/{id}/editar', [\App\Http\Controllers\PublicationsController::class, 'editProcess'])
     ->name('publications.edit.process')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 Route::get('/novedades/{id}/eliminar', [\App\Http\Controllers\PublicationsController::class, 'deleteForm'])
     ->name('publications.delete.form')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 Route::post('/novedades/{id}/eliminar', [\App\Http\Controllers\PublicationsController::class, 'deleteProcess'])
     ->name('publications.delete.process')
     ->whereNumber('id')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->middleware('is-admin');
 
 
 Route::get('/productos', [\App\Http\Controllers\ProductsController::class, 'all'])
@@ -139,7 +159,11 @@ Route::get('/publicaciones/{id}', [\App\Http\Controllers\NoveltyController::clas
     ->whereNumber('id');
 
 Route::get('/usuarios', [\App\Http\Controllers\UsersController::class, 'all'])
-    ->name('users.index');
+    ->name('users.index')
+    ->middleware('auth')
+    ->middleware('is-admin');
 Route::get('/usuarios/{id}', [\App\Http\Controllers\UsersController::class, 'view'])
     ->name('users.view')
-    ->whereNumber('id');
+    ->whereNumber('id')
+    ->middleware('auth')
+    ->middleware('is-admin');
